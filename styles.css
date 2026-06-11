@@ -1,93 +1,127 @@
 /* CST3144 Coursework - Frontend Styles */
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f7fa;
-  color: #222;
-  margin: 0;
-  padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #222;
+    margin: 0;
+    padding: 0;
 }
 
 header {
-  background-color: #ffffff;
-  padding: 1.5rem 2rem;
-  border-bottom: 2px solid #e5e9f0;
-  text-align: center;
+    background-color: #ffffff;
+    padding: 1.5rem 2rem;
+    border-bottom: 2px solid #e5e9f0;
+    text-align: center;
 }
 
 header h1 {
-  margin: 0;
-  color: #2c5fb3;
-  font-size: 1.8rem;
+    margin: 0;
+    color: #2c5fb3;
+    font-size: 1.8rem;
 }
 
 main {
-  max-width: 1100px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
 }
 
 /* Lesson grid layout */
 .lesson-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
 }
 
 /* Individual lesson card */
 .lesson-card {
-  background-color: #ffffff;
-  border: 1px solid #e5e9f0;
-  border-radius: 10px;
-  padding: 1.25rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  text-align: center;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+    background-color: #ffffff;
+    border: 1px solid #e5e9f0;
+    border-radius: 10px;
+    padding: 1.25rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .lesson-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* Lesson image */
 .lesson-image {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  margin-bottom: 0.75rem;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 0.75rem;
 }
 
 .lesson-card h2 {
-  margin: 0.25rem 0 0.75rem;
-  color: #2c5fb3;
-  font-size: 1.25rem;
+    margin: 0.25rem 0 0.75rem;
+    color: #2c5fb3;
+    font-size: 1.25rem;
 }
 
 .lesson-card p {
-  margin: 0.25rem 0;
-  font-size: 0.95rem;
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
 }
 
 /* Button */
 .lesson-card button {
-  margin-top: 1rem;
-  padding: 0.55rem 1.2rem;
-  background-color: #2c5fb3;
-  color: #ffffff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: background-color 0.15s ease;
+    margin-top: 1rem;
+    padding: 0.55rem 1.2rem;
+    background-color: #2c5fb3;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.15s ease;
 }
 
 .lesson-card button:hover {
-  background-color: #1f4b94;
+    background-color: #1f4b94;
 }
 
 .lesson-card button:disabled {
-  background-color: #b8c0cf;
-  cursor: not-allowed;
+    background-color: #b8c0cf;
+    cursor: not-allowed;
+}
+
+/* Sort controls */
+.sort-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 1.25rem;
+    background-color: #ffffff;
+    border: 1px solid #e5e9f0;
+    border-radius: 10px;
+}
+
+.sort-controls label {
+    font-weight: 600;
+    color: #2c5fb3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sort-controls select {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid #cbd2e0;
+    border-radius: 6px;
+    background-color: #fafbfc;
+    font-size: 0.95rem;
+    cursor: pointer;
+}
+
+.sort-controls select:focus {
+    outline: none;
+    border-color: #2c5fb3;
 }

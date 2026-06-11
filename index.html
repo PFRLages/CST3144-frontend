@@ -1,42 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>After-School Lessons</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>After-School Lessons</title>
 
-  <!-- Vue 2 from CDN (as taught in the workshop) -->
-  <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
+    <!-- Vue 2 from CDN (as taught in the workshop) -->
+    <script src="https://unpkg.com/vue@2.7.8/dist/vue.js"></script>
 
-  <!-- Our stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
+    <!-- Our stylesheet -->
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
 
-  <!-- Vue mounts to this element -->
-  <div id="app">
-    <header>
-      <h1>{{ sitename }}</h1>
-    </header>
+    <!-- Vue mounts to this element -->
+    <div id="app">
+        <header>
+            <h1>{{ sitename }}</h1>
+        </header>
 
-    <main>
-        <div class="lesson-grid">
-            <div class="lesson-card" v-for="lesson in lessons" v-bind:key="lesson._id">
-                <img v-bind:src="apiUrl + '/static/images/' + lesson.image"
-                    v-bind:alt="lesson.topic"
-                    class="lesson-image" />
-                <h2>{{ lesson.topic }}</h2>
-                <p><strong>Location:</strong> {{ lesson.location }}</p>
-                <p><strong>Price:</strong> £{{ lesson.price }}</p>
-                <p><strong>Spaces:</strong> {{ lesson.space }}</p>
-                <button>Add to cart</button>
+        <main>
+            <!-- Sort controls -->
+            <div class="sort-controls">
+                <label>
+                    Sort by:
+                    <select v-model="sortAttribute">
+                        <option value="topic">Subject</option>
+                        <option value="location">Location</option>
+                        <option value="price">Price</option>
+                        <option value="space">Spaces</option>
+                    </select>
+                </label>
+
+                <label>
+                    Order:
+                    <select v-model="sortOrder">
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </label>
             </div>
-        </div>
-    </main>
-  </div>
 
-  <!-- Our Vue logic -->
-  <script src="script.js"></script>
+            <!-- Lesson grid (sortedLessons) -->
+            <div class="lesson-grid">
+                <div class="lesson-card" v-for="lesson in sortedLessons" v-bind:key="lesson._id">
+                    <img v-bind:src="apiUrl + '/static/images/' + lesson.image" v-bind:alt="lesson.topic"
+                        class="lesson-image" />
+                    <h2>{{ lesson.topic }}</h2>
+                    <p><strong>Location:</strong> {{ lesson.location }}</p>
+                    <p><strong>Price:</strong> £{{ lesson.price }}</p>
+                    <p><strong>Spaces:</strong> {{ lesson.space }}</p>
+                    <button>Add to cart</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Our Vue logic -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>
