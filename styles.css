@@ -26,3 +26,68 @@ main {
   margin: 2rem auto;
   padding: 0 1.5rem;
 }
+
+/* Lesson grid layout */
+.lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Individual lesson card */
+.lesson-card {
+  background-color: #ffffff;
+  border: 1px solid #e5e9f0;
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lesson-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Lesson image */
+.lesson-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 0.75rem;
+}
+
+.lesson-card h2 {
+  margin: 0.25rem 0 0.75rem;
+  color: #2c5fb3;
+  font-size: 1.25rem;
+}
+
+.lesson-card p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+}
+
+/* Button */
+.lesson-card button {
+  margin-top: 1rem;
+  padding: 0.55rem 1.2rem;
+  background-color: #2c5fb3;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background-color 0.15s ease;
+}
+
+.lesson-card button:hover {
+  background-color: #1f4b94;
+}
+
+.lesson-card button:disabled {
+  background-color: #b8c0cf;
+  cursor: not-allowed;
+}

@@ -20,7 +20,18 @@
     </header>
 
     <main>
-      <p>Test!</p>
+        <div class="lesson-grid">
+            <div class="lesson-card" v-for="lesson in lessons" v-bind:key="lesson._id">
+                <img v-bind:src="apiUrl + '/static/images/' + lesson.image"
+                    v-bind:alt="lesson.topic"
+                    class="lesson-image" />
+                <h2>{{ lesson.topic }}</h2>
+                <p><strong>Location:</strong> {{ lesson.location }}</p>
+                <p><strong>Price:</strong> £{{ lesson.price }}</p>
+                <p><strong>Spaces:</strong> {{ lesson.space }}</p>
+                <button>Add to cart</button>
+            </div>
+        </div>
     </main>
   </div>
 
