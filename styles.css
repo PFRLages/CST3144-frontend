@@ -1,139 +1,43 @@
 /* CST3144 Coursework - Frontend Styles */
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f5f7fa;
     color: #222;
     margin: 0;
     padding: 0;
+    line-height: 1.5;
 }
 
-/* Header with cart button */
+/* Header */
 header {
     background-color: #ffffff;
-    padding: 1.5rem 2rem;
+    padding: 1.25rem 2rem;
     border-bottom: 2px solid #e5e9f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
 }
 
 header h1 {
     margin: 0;
     color: #2c5fb3;
-    font-size: 1.8rem;
-}
-
-main {
-    max-width: 1100px;
-    margin: 2rem auto;
-    padding: 0 1.5rem;
-}
-
-/* Lesson grid layout */
-.lesson-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1.5rem;
-}
-
-/* Individual lesson card */
-.lesson-card {
-    background-color: #ffffff;
-    border: 1px solid #e5e9f0;
-    border-radius: 10px;
-    padding: 1.25rem;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    text-align: center;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.lesson-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-}
-
-/* Lesson image */
-.lesson-image {
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    margin-bottom: 0.75rem;
-}
-
-.lesson-card h2 {
-    margin: 0.25rem 0 0.75rem;
-    color: #2c5fb3;
-    font-size: 1.25rem;
-}
-
-.lesson-card p {
-    margin: 0.25rem 0;
-    font-size: 0.95rem;
-}
-
-/* Button */
-.lesson-card button {
-    margin-top: 1rem;
-    padding: 0.55rem 1.2rem;
-    background-color: #2c5fb3;
-    color: #ffffff;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.95rem;
-    transition: background-color 0.15s ease;
-}
-
-.lesson-card button:hover {
-    background-color: #1f4b94;
-}
-
-.lesson-card button:disabled {
-    background-color: #b8c0cf;
-    cursor: not-allowed;
-}
-
-/* Sort controls */
-.sort-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem 1.25rem;
-    background-color: #ffffff;
-    border: 1px solid #e5e9f0;
-    border-radius: 10px;
-}
-
-.sort-controls label {
-    font-weight: 600;
-    color: #2c5fb3;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.sort-controls select {
-    padding: 0.4rem 0.6rem;
-    border: 1px solid #cbd2e0;
-    border-radius: 6px;
-    background-color: #fafbfc;
-    font-size: 0.95rem;
-    cursor: pointer;
-}
-
-.sort-controls select:focus {
-    outline: none;
-    border-color: #2c5fb3;
+    font-size: 1.6rem;
 }
 
 /* Cart toggle button */
 .cart-toggle {
-    padding: 0.6rem 1.2rem;
+    padding: 0.55rem 1.1rem;
     background-color: #2c5fb3;
     color: #ffffff;
     border: none;
@@ -141,7 +45,6 @@ main {
     cursor: pointer;
     font-weight: 600;
     font-size: 0.95rem;
-    transition: background-color 0.15s ease;
 }
 
 .cart-toggle:hover:not(:disabled) {
@@ -153,10 +56,140 @@ main {
     cursor: not-allowed;
 }
 
-/* Cart page title */
-.cart-title {
-    color: #2c5fb3;
+/* Main container */
+main {
+    max-width: 1200px;
+    margin: 1.5rem auto;
+    padding: 0 1.5rem;
+}
+
+/* Toolbar wrapping search + sort on the same line */
+.toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin-bottom: 1.5rem;
+    align-items: stretch;
+}
+
+.search-bar {
+    flex: 1 1 320px;
+    min-width: 0;
+}
+
+.search-bar input {
+    width: 100%;
+    height: 100%;
+    padding: 0.65rem 1rem;
+    border: 1px solid #cbd2e0;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: #ffffff;
+}
+
+.search-bar input:focus {
+    outline: none;
+    border-color: #2c5fb3;
+    box-shadow: 0 0 0 3px rgba(44, 95, 179, 0.15);
+}
+
+/* Sort controls - right side of toolbar */
+.sort-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.55rem 1rem;
+    background-color: #ffffff;
+    border: 1px solid #e5e9f0;
+    border-radius: 8px;
+    flex: 1 1 320px;
+}
+
+.sort-controls label {
+    font-weight: 600;
+    color: #2c5fb3;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.sort-controls select {
+    padding: 0.35rem 0.5rem;
+    border: 1px solid #cbd2e0;
+    border-radius: 6px;
+    background-color: #fafbfc;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #222;
+}
+
+/* Lesson grid - smaller cards, more per row */
+.lesson-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)) !important;
+    gap: 1rem;
+}
+
+/* Individual lesson card */
+.lesson-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e9f0;
+    border-radius: 10px;
+    padding: 1rem 0.75rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.lesson-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Smaller lesson images */
+.lesson-image {
+    width: 50px !important;
+    height: 50px !important;
+    object-fit: contain;
+    margin-bottom: 0.4rem;
+}
+
+.lesson-card h2 {
+    margin: 0.2rem 0 0.4rem;
+    color: #2c5fb3;
+    font-size: 1rem;
+}
+
+.lesson-card p {
+    margin: 0.15rem 0;
+    font-size: 0.82rem;
+}
+
+.lesson-card button {
+    margin-top: 0.7rem;
+    padding: 0.4rem 0.8rem;
+    background-color: #2c5fb3;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.82rem;
+    width: 100%;
+}
+
+.lesson-card button:hover:not(:disabled) {
+    background-color: #1f4b94;
+}
+
+.lesson-card button:disabled {
+    background-color: #b8c0cf;
+    cursor: not-allowed;
 }
 
 /* Remove button on cart items */
@@ -168,6 +201,13 @@ main {
     background-color: #962d22 !important;
 }
 
+/* Cart page title */
+.cart-title {
+    color: #2c5fb3;
+    margin: 0 0 1.25rem;
+    font-size: 1.4rem;
+}
+
 /* Checkout form */
 .checkout-form {
     background-color: #ffffff;
@@ -175,13 +215,14 @@ main {
     border-radius: 10px;
     border: 1px solid #e5e9f0;
     max-width: 500px;
-    margin: 2rem auto;
+    margin: 2rem auto 0;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 .checkout-form h2 {
     color: #2c5fb3;
     margin-top: 0;
+    margin-bottom: 1rem;
 }
 
 .checkout-form label {
@@ -189,6 +230,7 @@ main {
     margin-top: 1rem;
     font-weight: 600;
     color: #333;
+    font-size: 0.95rem;
 }
 
 .checkout-form input {
@@ -199,7 +241,6 @@ main {
     border: 1px solid #cbd2e0;
     border-radius: 6px;
     font-size: 0.95rem;
-    box-sizing: border-box;
 }
 
 .checkout-form input:focus {
@@ -217,7 +258,7 @@ main {
     cursor: pointer;
     font-weight: 600;
     font-size: 1rem;
-    transition: background-color 0.15s ease;
+    width: 100%;
 }
 
 .checkout-btn:hover:not(:disabled) {
@@ -229,21 +270,19 @@ main {
     cursor: not-allowed;
 }
 
-/* Validation error text */
 .error {
     color: #c0392b;
     margin: 0.3rem 0 0;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
 }
 
-/* Confirmation message */
 .confirmation {
     background-color: #d4edda;
     color: #155724;
     padding: 1rem 1.25rem;
     border-radius: 6px;
-    margin: 1.5rem auto;
-    max-width: 500px;
+    margin: 0 auto 1.5rem;
+    max-width: 600px;
     text-align: center;
     font-weight: 600;
 }

@@ -17,6 +17,7 @@
 
     <!-- Vue mounts to this element -->
     <div id="app">
+
         <header>
             <h1>{{ sitename }}</h1>
             <button class="cart-toggle" v-on:click="toggleCart" v-bind:disabled="cart.length === 0">
@@ -26,28 +27,42 @@
 
         <main>
 
+            <!-- Confirmation message (shown after successful order) -->
+            <p v-if="orderConfirmation" class="confirmation">{{ orderConfirmation }}</p>
+
             <!-- LESSONS VIEW -->
             <div v-if="!showCart">
 
-                <!-- Sort controls -->
-                <div class="sort-controls">
-                    <label>
-                        Sort by:
-                        <select v-model="sortAttribute">
-                            <option value="topic">Subject</option>
-                            <option value="location">Location</option>
-                            <option value="price">Price</option>
-                            <option value="space">Spaces</option>
-                        </select>
-                    </label>
+                <!-- Search + Sort toolbar (same line) -->
+                <div class="toolbar">
 
-                    <label>
-                        Order:
-                        <select v-model="sortOrder">
-                            <option value="asc">Ascending</option>
-                            <option value="desc">Descending</option>
-                        </select>
-                    </label>
+                    <!-- Search bar -->
+                    <div class="search-bar">
+                        <input type="text" v-model="searchQuery" v-on:input="searchLessons"
+                            placeholder="Search lessons by subject, location, price, or spaces..." />
+                    </div>
+
+                    <!-- Sort controls -->
+                    <div class="sort-controls">
+                        <label>
+                            Sort by:
+                            <select v-model="sortAttribute">
+                                <option value="topic">Subject</option>
+                                <option value="location">Location</option>
+                                <option value="price">Price</option>
+                                <option value="space">Spaces</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Order:
+                            <select v-model="sortOrder">
+                                <option value="asc">Ascending</option>
+                                <option value="desc">Descending</option>
+                            </select>
+                        </label>
+                    </div>
+
                 </div>
 
                 <!-- Lesson grid -->
@@ -103,11 +118,10 @@
                     </button>
                 </div>
 
-                <!-- Confirmation message -->
-                <p v-if="orderConfirmation" class="confirmation">{{ orderConfirmation }}</p>
             </div>
 
         </main>
+
     </div>
 
     <!-- Our Vue logic -->

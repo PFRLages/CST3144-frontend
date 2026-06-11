@@ -16,7 +16,8 @@ let webstore = new Vue({
         sortOrder: 'asc',
         checkoutName: '',
         checkoutPhone: '',
-        orderConfirmation: ''
+        orderConfirmation: '',
+        searchQuery: ''
     },
     // Runs when Vue mounts to the page
     mounted: function () {
@@ -132,6 +133,17 @@ let webstore = new Vue({
                 .catch(error => {
                     console.error('Order submission failed:', error);
                     this.orderConfirmation = 'Error submitting order.';
+                });
+        },
+        // Search lessons via the backend - runs on every keystroke
+        searchLessons: function () {
+            fetch(`${this.apiUrl}/search?q=${this.searchQuery}`)
+                .then(response => response.json())
+                .then(data => {
+                    this.lessons = data;
+                })
+                .catch(error => {
+                    console.error('Search failed:', error);
                 });
         }
     }
