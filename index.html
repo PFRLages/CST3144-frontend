@@ -19,6 +19,7 @@
     <div id="app">
         <header>
             <h1>{{ sitename }}</h1>
+            <p class="cart-count">🛒 Cart: {{ cart.length }} item(s)</p>
         </header>
 
         <main>
@@ -52,7 +53,9 @@
                     <p><strong>Location:</strong> {{ lesson.location }}</p>
                     <p><strong>Price:</strong> £{{ lesson.price }}</p>
                     <p><strong>Spaces:</strong> {{ lesson.space }}</p>
-                    <button>Add to cart</button>
+                    <button v-on:click="addToCart(lesson)" v-bind:disabled="lesson.space === 0">
+                        {{ lesson.space === 0 ? 'No spaces left' : 'Add to cart' }}
+                    </button>
                 </div>
             </div>
         </main>

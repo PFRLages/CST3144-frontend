@@ -125,3 +125,10 @@ main {
     outline: none;
     border-color: #2c5fb3;
 }
+
+/* Cart count in header */
+.cart-count {
+    margin: 0.5rem 0 0;
+    color: #555;
+    font-size: 0.95rem;
+}

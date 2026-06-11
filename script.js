@@ -9,6 +9,7 @@ let webstore = new Vue({
     data: {
         sitename: 'After-School Lessons',
         lessons: [],
+        cart: [],
         apiUrl: 'http://localhost:8080',
         sortAttribute: 'topic',
         sortOrder: 'asc'
@@ -42,9 +43,8 @@ let webstore = new Vue({
         }
     },
     methods: {
-        // Fetch all lessons from the backend
         loadLessons: function () {
-            fetch(`${API_URL}/lessons`)
+            fetch(`${this.apiUrl}/lessons`)
                 .then(response => response.json())
                 .then(data => {
                     this.lessons = data;
@@ -52,6 +52,13 @@ let webstore = new Vue({
                 .catch(error => {
                     console.error('Failed to load lessons:', error);
                 });
+        },
+        // Add a lesson to the cart and reduce its remaining space by one
+        addToCart: function (lesson) {
+            if (lesson.space > 0) {
+                this.cart.push(lesson);
+                lesson.space--;
+            }
         }
     }
 });
