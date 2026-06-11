@@ -167,3 +167,83 @@ main {
 .remove-btn:hover {
     background-color: #962d22 !important;
 }
+
+/* Checkout form */
+.checkout-form {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #e5e9f0;
+    max-width: 500px;
+    margin: 2rem auto;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.checkout-form h2 {
+    color: #2c5fb3;
+    margin-top: 0;
+}
+
+.checkout-form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.checkout-form input {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    margin-top: 0.4rem;
+    border: 1px solid #cbd2e0;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+.checkout-form input:focus {
+    outline: none;
+    border-color: #2c5fb3;
+}
+
+.checkout-btn {
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.4rem;
+    background-color: #2c8b3e;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.15s ease;
+}
+
+.checkout-btn:hover:not(:disabled) {
+    background-color: #226d31;
+}
+
+.checkout-btn:disabled {
+    background-color: #b8c0cf;
+    cursor: not-allowed;
+}
+
+/* Validation error text */
+.error {
+    color: #c0392b;
+    margin: 0.3rem 0 0;
+    font-size: 0.9rem;
+}
+
+/* Confirmation message */
+.confirmation {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 1rem 1.25rem;
+    border-radius: 6px;
+    margin: 1.5rem auto;
+    max-width: 500px;
+    text-align: center;
+    font-weight: 600;
+}

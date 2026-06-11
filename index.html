@@ -81,6 +81,30 @@
                         <button v-on:click="removeFromCart(index)" class="remove-btn">Remove</button>
                     </div>
                 </div>
+
+                <!-- Checkout form (part of the cart page) -->
+                <div class="checkout-form" v-if="cart.length > 0">
+                    <h2>Checkout</h2>
+
+                    <label>
+                        Name:
+                        <input type="text" v-model="checkoutName" placeholder="John Smith" />
+                    </label>
+                    <p v-if="checkoutName && !isValidName" class="error">Name must contain letters only.</p>
+
+                    <label>
+                        Phone:
+                        <input type="text" v-model="checkoutPhone" placeholder="07123456789" />
+                    </label>
+                    <p v-if="checkoutPhone && !isValidPhone" class="error">Phone must contain numbers only.</p>
+
+                    <button v-on:click="submitOrder" v-bind:disabled="!canCheckout" class="checkout-btn">
+                        Checkout
+                    </button>
+                </div>
+
+                <!-- Confirmation message -->
+                <p v-if="orderConfirmation" class="confirmation">{{ orderConfirmation }}</p>
             </div>
 
         </main>
